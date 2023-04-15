@@ -1,0 +1,15 @@
+{
+    "name": "netlify-lambda",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "netlify-lambda serve functions",
+        "build": "netlify-lambda build functions"
+    },
+    "dependencies": {
+        "@netlify/functions": "^1.4.0",
+        "netlify-lambda": "^2.0.16",
+        "typescript": "^5.0.4"
+    }
+}

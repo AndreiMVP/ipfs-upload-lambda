@@ -1,1 +1,1 @@
-"# netlify-lambda" 
+# netlify-lambda
