@@ -1,20 +1,21 @@
-import { Handler, HandlerEvent } from "@netlify/functions";
-import { StatusCodes } from "http-status-codes";
-import amqp from "amqplib";
-import { Blob, File, FilebaseClient } from "@filebase/client";
-import busboy from "busboy";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const FILEBASE_TOKEN = "x";
-const AMQP_URL = "x";
-const AMQP_EXCHANGE = "filebase";
+import { Handler, HandlerEvent } from "@netlify/functions";
+import { Blob, File, FilebaseClient } from "@filebase/client";
+import amqp from "amqplib";
+import busboy from "busboy";
+import { StatusCodes } from "http-status-codes";
+
+const { FILEBASE_TOKEN, AMQP_URL, AMQP_EXCHANGE } = process.env;
+
+const PARENT_NAME_KEY = "###";
+const PARENT_FILETYPE = "application/json";
 
 const filebase = new FilebaseClient({ token: FILEBASE_TOKEN });
 
 const genUri = (cid: string, filename?: string) =>
   `/${cid}` + (filename ? `/${filename}` : "");
-
-const PARENT_NAME_KEY = "###";
-const PARENT_FILETYPE = "application/json";
 
 type FormElement =
   | { isFile: true; filename: string; mimeType: string; content: Buffer }
@@ -24,12 +25,12 @@ type FormData = { [key: string]: FormElement };
 const emitRabbitMQLog = async (cid: string) => {
   // let connection;
   // try {
-  // await new Response().arrayBuffer();
-  // connection = await amqp.connect(AMQP_URL);
-  // const channel = await connection.createChannel();
+  //   await new Response().arrayBuffer();
+  //   connection = await amqp.connect(AMQP_URL);
+  //   const channel = await connection.createChannel();
 
-  // await channel.assertExchange(AMQP_EXCHANGE, "fanout");
-  // channel.publish(AMQP_EXCHANGE, "", Buffer.from(cid));
+  //   await channel.assertExchange(AMQP_EXCHANGE, "fanout");
+  //   channel.publish(AMQP_EXCHANGE, "", Buffer.from(cid));
 
   console.log(`Sent IPFS CID '${cid}' to exchange '${AMQP_EXCHANGE}'`);
 

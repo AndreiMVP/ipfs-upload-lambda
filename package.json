@@ -12,7 +12,8 @@
         "@filebase/client": "^0.0.4",
         "@types/node": "^14.18.42",
         "amqplib": "^0.10.3",
-        "busboy": "^1.6.0"
+        "busboy": "^1.6.0",
+        "dotenv": "^16.0.3"
     },
     "devDependencies": {
         "@netlify/functions": "^1.4.0",
