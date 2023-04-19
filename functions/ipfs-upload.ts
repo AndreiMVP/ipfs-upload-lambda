@@ -4,8 +4,7 @@ import amqp from "amqplib";
 import { Blob, File, FilebaseClient } from "@filebase/client";
 import busboy from "busboy";
 
-const FILEBASE_TOKEN =
-  "M0QzRDQyNEY4NEQ4OTEwN0U0MDU6UXRNOGJ2RkFxU0ZWWDNrRmZRcUE0Z0NDc1pKYzV1MEJBYWljVzRxbTp0ZXN0LWJ1Y2t5";
+const FILEBASE_TOKEN = "x";
 const AMQP_URL = "x";
 const AMQP_EXCHANGE = "filebase";
 
