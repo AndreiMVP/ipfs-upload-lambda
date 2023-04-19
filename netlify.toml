@@ -1,3 +1,6 @@
+[build]
+    command = "tsc"
+
 [functions]
     directory = "dist"
 
