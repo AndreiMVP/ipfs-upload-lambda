@@ -11,7 +11,7 @@ const AMQP_EXCHANGE = "filebase";
 const filebase = new FilebaseClient({ token: FILEBASE_TOKEN });
 
 const genUri = (cid: string, filename?: string) =>
-  "/ipfs/" + cid + (filename ? `/${filename}` : "");
+  `/${cid}` + (filename ? `/${filename}` : "");
 
 const PARENT_NAME_KEY = "###";
 const PARENT_FILETYPE = "application/json";
