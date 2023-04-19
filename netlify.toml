@@ -1,5 +1,5 @@
 [build]
-    command = "tsc"
+    command = "yarn build"
 
 [functions]
     directory = "dist"
